@@ -1,4 +1,5 @@
 import HomePage from "../components/HomePage";
+import JobDetails from "../components/JobDetails";
 import JobList from "../components/JobList";
 import Postajob from "../components/Postajob";
 import SignIn from "../components/SignIn";
@@ -17,6 +18,11 @@ const routes = [
   {
     path: "/job_list",
     component: <JobList />,
+  },
+
+  {
+    path: "/job_detail/:id",
+    component: <JobDetails />,
   },
 
   {

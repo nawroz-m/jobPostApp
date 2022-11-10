@@ -23,7 +23,11 @@ const SignIn = () => {
       localStorage.setItem(LOCALSTORAGECONSTANT.EMAIL, responseData.email);
       localStorage.setItem(LOCALSTORAGECONSTANT.ROLE, responseData.usertype);
       localStorage.setItem(LOCALSTORAGECONSTANT.USERID, responseData._id);
-      nav("/");
+
+      if (responseData.usertype === "employee") {
+        nav("/job_list");
+      }
+      nav("/post_job");
     } else {
       setAlert(true);
     }

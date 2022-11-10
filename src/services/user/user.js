@@ -38,3 +38,22 @@ export const getAllJobs = async () => {
     return e;
   }
 };
+
+export const applyJob = async (data) => {
+  try {
+    const response = await api.postWithToken(url.applyJob, data);
+
+    return response;
+  } catch (e) {
+    return e;
+  }
+};
+
+export const getJobById = async (id) => {
+  try {
+    const response = await api.get(`${url.getalljobs}?id=${id}`);
+    return response;
+  } catch (e) {
+    return e;
+  }
+};

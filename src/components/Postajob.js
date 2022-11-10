@@ -10,6 +10,10 @@ const userRole = localStorage.getItem(LOCALSTORAGECONSTANT.ROLE);
 const Postajob = () => {
   const [jobTitle, setJobTitle] = useState("");
   const [jobId, setJobId] = useState("");
+  const [location, setLocation] = useState("");
+  const [mode, setMode] = useState("");
+  const [level, setLevel] = useState("");
+
   const [alert, setAlert] = useState(false);
   const nav = useNavigate();
 
@@ -17,6 +21,9 @@ const Postajob = () => {
     const data = {
       job_title: jobTitle,
       job_id: jobId,
+      location: location,
+      mode: mode,
+      level: level,
     };
 
     const response = await postNewJob(data);
@@ -91,12 +98,49 @@ const Postajob = () => {
           </div>
 
           <div>
+            <TextField
+              sx={{ width: 300, margin: 2 }}
+              id="outlined-basic"
+              label="Location"
+              variant="outlined"
+              placeholder="Enter the job location"
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <TextField
+              sx={{ width: 300, margin: 2 }}
+              id="outlined-basic"
+              label="Mode"
+              variant="outlined"
+              placeholder="On-site, Remote, Hybred"
+              onChange={(e) => {
+                setMode(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <TextField
+              sx={{ width: 300, margin: 2 }}
+              id="outlined-basic"
+              label="Level"
+              variant="outlined"
+              placeholder="Intern, junior, senior"
+              onChange={(e) => {
+                setLevel(e.target.value);
+              }}
+            />
+          </div>
+
+          <div>
             <Button
               sx={{ margin: 2 }}
               variant="contained"
               onClick={onSubmitJobPost}
             >
-              Sign In
+              Post job
             </Button>
           </div>
         </div>

@@ -5,5 +5,7 @@ export const signup = "signup";
 export const signin = "signin";
 export const postajob = "post_job";
 export const getalljobs = "get_jobs";
+export const applyJob = "apply_job";
+// export const getJobByid = "";
 
 export const URL = DevURL;
