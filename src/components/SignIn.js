@@ -2,6 +2,9 @@ import { Alert, AlertTitle, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOCALSTORAGECONSTANT } from "../constant/cons";
+import SignInRight from "../pages/authPages/SignInRight";
+import SignUpLeft from "../pages/authPages/SignUpLeft";
+import SignUpRight from "../pages/authPages/SignUpRight";
 import { signinUser, signupUser } from "../services/user/user";
 
 const SignIn = () => {
@@ -37,63 +40,10 @@ const SignIn = () => {
     setAlert(false);
   }, 2000);
   return (
-    <div
-      style={{
-        // display: "inline",
-        // justifyContent: "center",
-        // alignItems: "center",
-        textAlign: "center",
-      }}
-    >
-      {alert && (
-        <Alert severity="error">
-          <AlertTitle>Error</AlertTitle>
-          User not found — <strong>check your credintial!</strong>
-        </Alert>
-      )}
-      <h1>Signin page</h1>
+    <div className="signupContainer">
+      <SignUpLeft />
 
-      <div
-        style={{
-          display: "inline",
-        }}
-      >
-        <div>
-          <TextField
-            sx={{ width: 300, margin: 2 }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            placeholder="Enter your email address"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <TextField
-            sx={{ width: 300, margin: 2 }}
-            type="password"
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            placeholder="Enter a password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-
-        <div>
-          <Button
-            sx={{ margin: 2 }}
-            variant="contained"
-            onClick={onSubmitHandler}
-          >
-            Sign In
-          </Button>
-        </div>
-      </div>
+      <SignInRight />
     </div>
   );
 };

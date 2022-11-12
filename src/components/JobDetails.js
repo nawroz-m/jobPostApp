@@ -21,11 +21,12 @@ const JobDetails = () => {
   const fetchJobs = async (user_id) => {
     const response = await getJobById(user_id);
     const jobsResponse = response && response.data && response.data.jobs;
-    if (!jobsResponse) {
+    if (!jobsResponse || jobsResponse === undefined) {
       setJobs(null);
-      setAlert(false);
+      setAlert(true);
+    } else {
+      setJobs(jobsResponse);
     }
-    setJobs(jobsResponse);
   };
 
   useEffect(() => {
@@ -51,12 +52,6 @@ const JobDetails = () => {
   };
   return (
     <>
-      {alert && !jobs && (
-        <Alert severity="error">
-          <AlertTitle>Error</AlertTitle>
-          not found any job!
-        </Alert>
-      )}
       {alert && jobs && (
         <Alert severity="error">
           <AlertTitle>Error</AlertTitle>
@@ -64,51 +59,62 @@ const JobDetails = () => {
         </Alert>
       )}
 
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-            {jobs && jobs.job_title}
-          </Typography>
+      {jobs ? (
+        <Card sx={{ minWidth: 275 }}>
+          <CardContent>
+            <Typography
+              sx={{ fontSize: 24 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              {jobs && jobs.job_title}
+            </Typography>
 
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            Job id: {jobs && jobs.job_id}
-            <div
-              style={{
-                display: "flex",
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              Job id: {jobs && jobs.job_id}
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <div style={{ margin: 10 }}>Level: {jobs && jobs.level}</div>
+                <div style={{ margin: 10 }}>
+                  Location: {jobs && jobs.location}
+                </div>
+                <div style={{ margin: 10 }}>Mode: {jobs && jobs.mode}</div>
+              </div>
+            </Typography>
+            <Typography variant="body2">
+              Descriptions: well meaning and kindly.
+              <br />
+              {'"a benevolent small"'}
+            </Typography>
+            <Button
+              style={{ float: "right" }}
+              variant="contained"
+              onClick={() => {
+                handleRegisterJob(jobs);
               }}
             >
-              <div style={{ margin: 10 }}>Level: {jobs && jobs.level}</div>
-              <div style={{ margin: 10 }}>
-                Location: {jobs && jobs.location}
-              </div>
-              <div style={{ margin: 10 }}>Mode: {jobs && jobs.mode}</div>
-            </div>
-          </Typography>
-          <Typography variant="body2">
-            Descriptions: well meaning and kindly.
-            <br />
-            {'"a benevolent small"'}
-          </Typography>
-          <Button
-            style={{ float: "right" }}
-            variant="contained"
-            onClick={() => {
-              handleRegisterJob(jobs);
-            }}
-          >
-            Register Now
-          </Button>
-          <Button
-            style={{ float: "left" }}
-            // variant="contained"
-            onClick={() => {
-              cancelHandler();
-            }}
-          >
-            cancel
-          </Button>
-        </CardContent>
-      </Card>
+              Register Now
+            </Button>
+            <Button
+              style={{ float: "left" }}
+              // variant="contained"
+              onClick={() => {
+                cancelHandler();
+              }}
+            >
+              cancel
+            </Button>
+          </CardContent>
+        </Card>
+      ) : (
+        <Alert severity="error">
+          <AlertTitle>Error</AlertTitle>
+          Not found any job!
+        </Alert>
+      )}
     </>
   );
 };

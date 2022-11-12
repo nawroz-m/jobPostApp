@@ -1,0 +1,131 @@
+.signupContainer {
+  display: flex;
+}
+
+.leftMinu {
+  /* background-color: blue; */
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  top: 0;
+  /* overflow-x: hidden; */
+
+  background-image: url("images/signupimg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.companyLogo {
+  display: flex;
+  padding-left: 20%;
+  padding-top: 20px;
+}
+
+.companyName {
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: Sans-serif;
+  /* background-color: aliceblue; */
+}
+
+.boldFontClass {
+  font-size: xx-large;
+  font-weight: bold;
+  /* font-family: Sans-serif; */
+}
+
+.viewLessFontClass {
+  font-size: large;
+  font-weight: normal;
+  color: gray;
+}
+
+.cardJobPlot {
+  margin-top: 10%;
+  margin-left: 7%;
+}
+.CanvaOverlayAvatorCard {
+  margin-top: 200px;
+  margin-left: 60%;
+  width: 270px;
+
+  /* position: relative; */
+}
+
+.AvatarProfilePic {
+  position: absolute;
+  margin-top: -20px;
+}
+
+.ConvaUserName {
+  font-size: large;
+  font-weight: bold;
+  color: gray;
+}
+
+.TextFieldLabel {
+  padding-left: 185px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.AuthInputTextField {
+  width: 300px;
+}
+
+.anchorHrefBotomLine {
+  text-decoration: none;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgb(79, 76, 76);
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+.LandingDiscover {
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  top: 0;
+  /* overflow-x: hidden; */
+
+  background-image: url("images/landingPageImg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 1%, 100% 0, 100% 75%, 74% 100%, 0 100%, 0% 50%);
+}
+
+.DiscoverDivClass {
+  font-size: 50px;
+  /* color: blue; */
+  margin-top: 50px;
+}
+
+.landingMinu {
+  margin: 30px;
+}
+
+.SearchJobInputsArea {
+  width: 80%;
+  padding: 5px;
+  background-color: white;
+}
