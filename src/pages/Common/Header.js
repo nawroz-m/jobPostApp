@@ -36,15 +36,23 @@ const Header = () => {
                 },
               }}
             >
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  //   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "black", display: "block" }}
-                >
-                  {page}
-                </Button>
-              ))}
+              {/* {pages.map((page) => ( */}
+              <Button
+                onClick={() => {
+                  nav("/job_list");
+                }}
+                sx={{ my: 2, color: "black", display: "block" }}
+              >
+                Find Jobs
+              </Button>
+
+              <Button
+                // onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "black", display: "block" }}
+              >
+                Brows Companies
+              </Button>
+              {/* ))} */}
             </Box>
 
             <Button
